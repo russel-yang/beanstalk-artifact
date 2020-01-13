@@ -1,0 +1,9 @@
+name: 'beanstalk deploy'
+description: 'generate aws beanstalk deploy artifect'
+inputs:
+  hash:
+    description: build hash value
+    required: true
+runs:
+  using: 'node12'
+  main: '.dist/index.js'

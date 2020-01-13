@@ -4,6 +4,14 @@ inputs:
   hash:
     description: build hash value
     required: true
+  aws_region:
+    description: aws region
+    required: true
+    default: us-west-1
+  repository:
+    description: repository name
+    required: true
+    default: 't2gp-web'
 runs:
   using: 'node12'
   main: '.dist/index.js'

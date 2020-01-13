@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const core = require('@actions/core');
-const github = require('@actions/github');
 
 try {
   console.log('run beanstalk artifact action.');
@@ -10,10 +9,12 @@ try {
     fs.readFileSync(path.resolve(__dirname, './Dockerrun.aws.json'))
   );
   const hash = core.getInput('hash');
+  const awsRegion = core.getInput('aws_region') || 'us-west-1';
+  const repository = core.getInput('repository') || 't2gp-web';
 
   dockerRun['Image'][
     'Name'
-  ] = `354767525209.dkr.ecr.us-west-1.amazonaws.com/t2gp-web:${hash}`;
+  ] = `354767525209.dkr.ecr.${awsRegion}.amazonaws.com/${repository}:${hash}`;
   console.log(JSON.stringify(dockerRun));
   fs.writeFileSync('Dockerrun.aws.json', JSON.stringify(dockerRun));
 

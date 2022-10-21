@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@actions/core": "1.2.0",
-    "@actions/github": "2.0.0",
+    "@actions/github": "2.2.0",
     "install": "0.13.0",
     "npm": "7.0.0"
   },
